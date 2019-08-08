@@ -52,11 +52,11 @@ set maxvar 30000
 *******************************************************************************
 *BEFORE USE THE FOLLOWING NEED TO BE UPDATED:
 *Country/Round/Abbreviations
-global Country IN	 
-global Round Round3
-global round 3
-global country IN
-global CCRX INR3
+global Country US	 
+global Round Round1
+global round 1
+global country US
+global CCRX USR1
 
 *Locals (Dont need to Update)
 local Country "$Country"
@@ -66,6 +66,10 @@ local CCRX "$CCRX"
 *Year of the Survey
 local SurveyYear 2018 
 local SYShort 18 
+global SurveyYear 2019
+global SurveyMonth1 7
+global SurveyMonth2 8
+global SurveyMonth3 9
 
 ******CSV FILE NAMES ****
 *HHQ CSV File name 
@@ -791,6 +795,11 @@ capture collapse (count) metatag if locationAccuracy>6 | locationAccuracy==., by
 	gen HHQGPSAccuracymore6=0
 	save, replace
 	}
+restore
+
+**GPS Spatial data error-checks - By RE & Full list   
+preserve
+do "$dofiledir/`hhq_monit'.do"
 restore
 
 **Repeat for Female Accuracy
