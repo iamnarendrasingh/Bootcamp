@@ -2,6 +2,8 @@
 **Make sure you are using the Female Database with a date
 *Should automatically use the FRQ but if not, use the directory below
 *use "$datadir/CCR#_FRQ_$date.dta"
+* Created in Bootcamp Kenya
+
 
 **Examples
 
